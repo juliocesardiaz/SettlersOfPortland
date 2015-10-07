@@ -6,11 +6,19 @@ settlers.service('GridService', function GridService(TileFactory, VerticiesFacto
 
     this.generateGrid = function () {
         for (var i = 0; i < 19; i++) {
+            //create the hexagon grid with basic details
             grid.push({
                 id: grid.length + 1,
                 verticies: [verticies],
-                edges: [edges]
+                edges: [edges],
+                tile: {}
             });
+        }
+    };
+
+    this.generateBeginnerBoard = function () {
+        for (var i = 0; i < grid.length; i++) {
+            grid[i].tile = tile[i];
         }
     };
 });
